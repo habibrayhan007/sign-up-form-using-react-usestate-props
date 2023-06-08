@@ -52,6 +52,18 @@
     margin-bottom: 15px !important;
 }
 
-.generate-new-btn {
-    margin-top: 20px;
+.button-area {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+
+.output-details-container {
+    width: 420px;
+    height: 330px;
+}
+
+.output-details-wrapper {
+    background: #8a2020;
+    padding: 20px 20px 25px 20px;
 }

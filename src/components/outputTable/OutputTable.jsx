@@ -1,13 +1,26 @@
-import React from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import GenerateNewButton from '../ButtonComponent/GenerateNewButton';
+import React, { useState } from 'react';
+import { Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button } from '@mui/material';
+import OutputDetails from './OutputDetails';
 
-const OutputTable = ({ formData }) => {
+const OutputTable = ({ formData, onSeeDetails }) => {
+    const [showDetails, setShowDetails] = useState(false);
+    const [selectedRowData, setSelectedRowData] = useState(null);
+
     const { name, gender, preference, expectedSalary, skills } = formData;
+
+    const handleSeeDetails = () => {
+        setSelectedRowData(formData);
+        setShowDetails(true);
+        onSeeDetails(); // Call the prop function
+    };
+
+    if (showDetails) {
+        return <OutputDetails rowData={selectedRowData} />;
+    }
 
     return (
         <div className="table-container">
-            <h2>Final Output</h2>
+            <Typography variant="h2">Final Output</Typography>
             <div className="table-data">
                 <TableContainer>
                     <Table>
@@ -29,14 +42,15 @@ const OutputTable = ({ formData }) => {
                                 <TableCell>{expectedSalary}</TableCell>
                                 <TableCell>{skills}</TableCell>
                                 <TableCell>
-                                    <button>...</button>
+                                    <Button variant="contained" onClick={handleSeeDetails}>
+                                        View
+                                    </Button>
                                 </TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>
                 </TableContainer>
             </div>
-            <GenerateNewButton />
         </div>
     );
 };

@@ -22,6 +22,10 @@ const SkillsField = ({ formData, setFormData }) => {
         }
     };
 
+    const isSkillSelected = (skill) => {
+        return formData.skills.includes(skill);
+    };
+
     return (
         <div className='form-component'>
             <div className="component-wrapper">
@@ -34,7 +38,7 @@ const SkillsField = ({ formData, setFormData }) => {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        checked={formData.skills && formData.skills.includes('html')}
+                                        checked={isSkillSelected('html')}
                                         onChange={handleSkillsChange}
                                         name="html"
                                     />
@@ -44,7 +48,7 @@ const SkillsField = ({ formData, setFormData }) => {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        checked={formData.skills && formData.skills.includes('css')}
+                                        checked={isSkillSelected('css')}
                                         onChange={handleSkillsChange}
                                         name="css"
                                     />
@@ -54,7 +58,7 @@ const SkillsField = ({ formData, setFormData }) => {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        checked={formData.skills && formData.skills.includes('js')}
+                                        checked={isSkillSelected('js')}
                                         onChange={handleSkillsChange}
                                         name="js"
                                     />
@@ -68,7 +72,7 @@ const SkillsField = ({ formData, setFormData }) => {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        checked={formData.skills && formData.skills.includes('cSharp')}
+                                        checked={isSkillSelected('cSharp')}
                                         onChange={handleSkillsChange}
                                         name="cSharp"
                                     />
@@ -78,7 +82,7 @@ const SkillsField = ({ formData, setFormData }) => {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        checked={formData.skills && formData.skills.includes('dotNet')}
+                                        checked={isSkillSelected('dotNet')}
                                         onChange={handleSkillsChange}
                                         name="dotNet"
                                     />
@@ -88,7 +92,7 @@ const SkillsField = ({ formData, setFormData }) => {
                             <FormControlLabel
                                 control={
                                     <Checkbox
-                                        checked={formData.skills && formData.skills.includes('sql')}
+                                        checked={isSkillSelected('sql')}
                                         onChange={handleSkillsChange}
                                         name="sql"
                                     />
